@@ -1,9 +1,0 @@
-<div 
-    class="signup-button--wrapper {{ if .Get "aligned" }} auto-align-center {{ end }}"
-    style=" {{ with .Get "margin"}} margin: {{ . }} {{ end }}"
->
- <input class="signup-button prerender"
-        type="button"
-        value="{{ .Inner }}"
-        onclick="window.open({{ .Get "href" }}, '_blank').focus()">
-</div>

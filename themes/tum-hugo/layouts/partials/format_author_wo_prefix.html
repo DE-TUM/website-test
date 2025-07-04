@@ -1,8 +1,0 @@
-<!-- Find author -->
-{{ $author := .author}}
-{{ $found := false }}
-<!-- Case 1: Author is a map -->
-{{ if reflect.IsMap .author }}{{ if .author.url }}<a href="{{ .author.url }}" target="_blank" rel="external noopener noreferrer" class="link--external link-discrete">{{ $author.name }}</a>{{- "" -}}{{ else if .author.name }}{{ .author.name }}{{ else }}{{ range $key, $value := site.Data.external_members }}
-{{ if eq $key $author.alias }}<a onclick="event.stopPropagation()" href="{{ $value.url }}" class="link--external link-discrete" target="_blank">{{ $value.firstname }} {{ $value.lastname }}</a>{{ $found = true }}{{ end }}{{ end }}{{ end }}{{ else }}
-<!-- Case 2: Author is an alias -->
-{{ with site.GetPage $author }}<a href="{{ .RelPermalink }}" class="link-discrete">{{ .Params.firstname }} {{ .Params.lastname }}</a>{{ $found = true }}{{ end }}{{ end }}{{- /*remove_whitespace*/ -}}

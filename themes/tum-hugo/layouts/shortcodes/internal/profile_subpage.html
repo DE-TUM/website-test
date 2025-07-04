@@ -1,2 +1,0 @@
-{{ $subpage := index (where .Page.Pages "Params.title" (.Get "title")) 0 }}
-<h5><a href="{{ $subpage.RelPermalink }}">{{ .Get "text" }}</a></h5>
