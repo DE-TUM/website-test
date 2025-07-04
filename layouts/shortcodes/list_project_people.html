@@ -1,0 +1,56 @@
+<!-- People responsible for project (_index) -->
+{{ if .Page.Params.people }}
+{{ $resources := .Page.Resources }}
+<article>
+    {{ range .Page.Params.people }}
+    <h2>{{ .title }}</h2>
+    <div class="instructors--wrapper">
+        {{ range .list }}
+
+        {{ $image := $resources.GetMatch .image }}
+        {{ $name := .name }}
+        {{ $url := .url}}
+        {{ $is_external := true }}
+        
+        <!-- Alias -->
+        {{ if isset . "alias"}}
+            {{ $page := site.GetPage .alias }}
+            {{ $is_external = false }}
+            {{ $url = $page.RelPermalink }}
+            {{ $image = $page.Resources.GetMatch $page.Params.portrait }}
+            {{ if not $image }} {{ $image = $page.Resources.GetMatch "portrait.jpg" }} {{ end }}
+            {{ $name = printf "%s %s" $page.Params.firstname $page.Params.lastname }}
+            {{ with $page.Params.prefix }}
+                {{ $name = printf "%s %s" . $name}}
+            {{ end }}
+        {{ end }}
+
+        <div class="instructor--wrapper">
+
+            <div class="instructor--image--wrapper">
+                {{ with $image }}
+                <img class="instructor--image" src="{{ $image.RelPermalink }}">
+                {{ else }}
+                {{ .Params.portrait }}
+                <img class="instructor--image person-image-undefined" src="images/profile-placeholder.svg">
+                {{ end }}
+            </div>
+
+            <div class="instructor--text">
+                <!-- Url: external, internal, none -->
+                {{ if and $url $is_external }}
+                <a class="link--external" target="_blank" href="{{ $url }}">{{ $name }}</a>
+                {{ else if $url }}
+                <a  href="{{ $url }}">{{ $name }}</a>
+                {{ else }}
+                {{ $name }}
+                {{ end }}
+            </div>
+
+        </div>
+        {{ end }}
+    </div>
+    {{ end }}
+    <hr>
+</article>
+{{ end }}

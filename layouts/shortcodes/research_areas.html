@@ -1,0 +1,8 @@
+{{ $tags := (site.GetPage (.Get "alias")).Params.research }}
+
+{{ $research_areas := slice }}
+{{ range (where (site.GetPage "research").Pages "Params.type" "eq" "research-field") }}
+{{ if (intersect $tags .Params.tags) }}
+{{ partial "accordion" (dict "headline" .Params.title "Inner" .Params.summary ) }}
+{{ end }}
+{{ end }}

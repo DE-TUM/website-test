@@ -1,0 +1,17 @@
+{{ if .Get "path" }}
+    <a href="{{ .Get "path" }}">{{ .Inner }}</a>
+{{ else}}
+{{ $search := trim .Inner " " }}
+{{ $found := slice }}
+{{ range .Site.Pages }}
+    {{ if eq (lower .Title) (lower $search) }}
+        {{ $found = append . $found }}
+    {{ end }}
+{{ end }}
+
+{{ if $found }}
+    <a href="{{ (index $found (sub (len $found) 1)).RelPermalink }}">{{ $search }}</a>
+{{ else }}
+    {{ $search }}
+{{ end }}
+{{ end }}

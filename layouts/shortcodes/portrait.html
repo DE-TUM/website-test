@@ -1,0 +1,19 @@
+<div class="portrait_wrapper">
+    <div class="portrait-image--wrapper">
+        {{ $img_src := .Get "src" }}
+        {{ with .Page.Resources.GetMatch (.Get "path") }}
+            {{ $img_src = .RelPermalink }}
+        {{ end }}
+        {{ with $img_src }}
+        <img class="portait-image" src="{{ . }}">
+        {{ else }}
+        <img class="portait-image person-image-undefined" src="images/profile-placeholder.svg">
+        {{ end }}
+    </div>
+    <div class="portrait-text">
+        {{ .Get "name" }}
+    </div>
+    <div class="portrait-text">
+        ({{ .Get "subtitle" }})
+    </div>
+</div>

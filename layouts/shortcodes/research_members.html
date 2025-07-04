@@ -1,0 +1,43 @@
+{{ $iterable := slice }}
+{{ $tags := .Page.Params.tags }}
+{{ range $site := (site.GetPage "people").RegularPages }}
+  {{ range .Params.research }}
+    {{ if in $tags . }}
+      {{ $iterable = append $site $iterable }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+
+<div class="instructors--wrapper">
+  {{ range uniq $iterable }}
+  <div class="instructor--wrapper">
+    <!-- Check format of instructor -->
+    {{ $person := .}}
+    <div class="instructor--image--wrapper">
+      {{ $alias := index $person.Params.aliases 0 }}
+      {{ $img_src := "portrait.jpg"}}
+      {{ with $person.Params.portrait }}
+      {{ $img_src = .}}
+      {{ end }}
+      {{ $image := $person.Page.Resources.GetMatch $img_src }}
+      {{ if not $image }}
+        {{ $image = resources.Get "images/profile-placeholder.svg" }}
+      {{ else }}
+        {{ $image = $image.Fill "420x420" }}
+      {{ end }}
+      <a href="{{ $person.RelPermalink }}">
+        {{ with $image }}
+        <img class="instructor--image" src="{{ $image.RelPermalink }}">
+        {{ else }}
+        <img class="instructor--image person-image-undefined" src="images/profile-placeholder.svg">
+        {{ end }}
+      </a>
+    </div>
+    <div class="instructor--text">
+      {{ if reflect.IsMap . }}{{ with .role }}<br><br><i>{{ title . }}</i>{{ end }}{{ end }}
+      <a href="{{ $person.RelPermalink }}">{{ with $person.Params.prefix}}{{ . }} {{ end }}{{ $person.Params.firstname }} {{ $person.Params.lastname }}{{ if eq $person.Params.suffix "Ph.D." }}, Ph.D.{{ end }}</a>
+    </div>
+  </div>
+  {{ end }}
+</div>
