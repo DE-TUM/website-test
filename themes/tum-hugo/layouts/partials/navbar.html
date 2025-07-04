@@ -1,0 +1,101 @@
+<nav>
+    <ul id="navbar" data-current="{{ .current }}">
+        <li class="nav-item" data-id="home">
+            <a class="nav-item--link" href="">Home</a>
+        </li>
+
+        <li class="nav-item" data-id="posts">
+            <a class="nav-item--link" href="posts">News and Events</a>
+        </li>
+
+        <li class="nav-item" data-id="people">
+                {{ $people_list := .people_list }}
+                <a class="nav-item--link nav-item-has-submenu" href="people">People</a>
+                {{ with .sublists }}
+                    <ul class="nav-submenu">
+                    {{ range $idx, $list := . }}
+                        {{ $local_people := slice }}
+                        {{ range $people_list }}
+                            {{ if eq .Params.field (index $list 1 )}}
+                                {{ $local_people = $local_people | append .}}
+                            {{ end }}
+                        {{ end }}
+                        <!-- Professors has custom order -->
+                        {{ if eq $idx "00" }}
+                        {{ range sort $local_people ".Params.lastname" "desc" }}
+                        <li class="nav-submenu-item">
+                            {{ if .Params.link }}
+                            <a href="{{ .Params.link }}" class="nav-submenu-item--link">
+                            {{ else }}
+                            <a href="{{ .RelPermalink }}" class="nav-submenu-item--link">
+                            {{ end }}
+                            {{ with .Params.prefix }}{{ . }} {{ end }}{{ .Params.lastname }}, {{ .Params.firstname }}{{ if eq .Params.suffix "Ph.D." }}, Ph.D.{{ end }}
+                            </a>
+                        </li>
+                        {{ end }}
+
+                        <!-- Order: Alphabetical by lastname param -->
+                        {{ else }}
+                        {{ range sort $local_people ".Params.lastname" }}
+                        <li class="nav-submenu-item">
+                            {{ if .Params.link }}
+                            <a href="{{ .Params.link }}" class="nav-submenu-item--link">
+                            {{ else }}
+                            <a href="{{ .RelPermalink }}" class="nav-submenu-item--link">
+                            {{ end }}
+                                {{ with .Params.prefix }}{{ . }} {{ end }}{{ .Params.lastname }}, {{ .Params.firstname }}{{ if eq .Params.suffix "Ph.D." }}, Ph.D.{{ end }}
+                            </a>
+                        </li>
+                        {{ end }}
+                        {{ end }}
+                    {{ end }}
+                    </ul>
+                {{ end }}
+        </li>
+
+        <li class="nav-item" data-id="teaching">
+            <a class="nav-item--link nav-item-has-submenu" href="teaching">Teaching</a>
+            {{ with .sublists }}
+            <ul class="nav-submenu">
+                {{ range $_, $list := . }}
+                    <li class="nav-submenu-item">
+                        <a href="teaching/{{ index $list 1}}" class="nav-submenu-item--link">
+                            {{ index $list 0}}
+                        </a>
+                    </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </li>
+
+        <li class="nav-item" data-id="theses">
+            <a class="nav-item--link nav-item-has-submenu" href="theses">Theses</a>
+            {{ with .sublists }}
+            <ul class="nav-submenu">
+                {{ range $_, $list := . }}
+                <li class="nav-submenu-item">
+                    <a href="theses/{{ index $list 1}}" class="nav-submenu-item--list">
+                        {{ index $list 0}}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </li>
+
+        <li class="nav-item" data-id="jobs">
+            <a class="nav-item--link nav-item-has-submenu" href="jobs">Jobs</a>
+            {{ with .sublists }}
+            <ul class="nav-submenu">
+                {{ range $_, $list := . }}
+                <li class="nav-submenu-item">
+                    <a href="projects/{{ index $list 1}}" class="nav-submenu--link">
+                        {{ index $list 0}}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </li>
+    </ul>
+</nav>

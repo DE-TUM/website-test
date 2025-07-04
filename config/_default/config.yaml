@@ -1,0 +1,14 @@
+baseURL: '2025.eswc-conferences.org'
+languageCode: en-us
+title: 2025 ESWC Conference
+
+enableGitInfo: true
+enableRobotsTXT: true
+
+disableKinds:
+- taxonomy
+- term
+- RSS
+
+theme:
+  - "tum-hugo"

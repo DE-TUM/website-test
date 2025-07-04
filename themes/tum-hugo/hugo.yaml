@@ -1,0 +1,11 @@
+baseURL: 'https://ase.cit.tum.de/'
+languageCode: en-us
+title: Hugo Theme for TUM
+
+enableGitInfo: true
+enableRobotsTXT: true
+
+disableKinds:
+- taxonomy
+- term
+- RSS

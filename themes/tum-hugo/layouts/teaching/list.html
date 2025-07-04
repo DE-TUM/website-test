@@ -1,0 +1,94 @@
+
+{{ define "main" }}
+<!-- Get latest semester -->
+{{ $semesters := slice }}
+{{ $years := slice }}
+{{ range .Sections }}
+    {{ $years = append (index (split .RelPermalink "/") 2) $years }}
+    {{ $semesters = append .RelPermalink $semesters }}
+{{ end }}
+{{ $current_semester := printf "/teaching/%s" (index (sort $years) (sub (len $years) 1)) }}
+
+{{ with .Params.semester }}
+    {{ $current_semester = . }}
+    <!-- Redirect to latest semester -->
+{{ else }}
+{{ end }}
+
+<main>
+    <article>
+        {{ with $_ := (index (sort $years) (sub (len $years) 1)) }}
+        <h1>Teaching</h1>
+        {{ else }}
+        <h1>Teaching: {{ .Title }}</h1>
+        {{ end }}
+        {{.Content}}
+    </article>
+    
+    
+
+    <!-- Iterate through existing formats -->
+    
+    
+    {{ if eq .Params.title "Teachingg" }}
+        {{ range $semesters }}
+        {{ . }}
+        {{ end }}
+    {{ else }}
+    {{ range $semester := $semesters }}
+    {{ $existing_formats := slice }}
+    
+    {{ range (site.GetPage $semester).Pages }}
+    {{ $existing_formats = append .Params.format $existing_formats }}
+    {{ end }}
+    
+    <div class="teaching-format--wrapper">
+        <h2>{{ (site.GetPage $semester).Title }}</h2>
+        {{ range $format := sort (uniq $existing_formats) }}
+        <div class="teaching-format--item">
+            <!-- I apologize for this hack -->
+            <h3>{{ replace $format "_" " " | humanize }}{{ if ne $format "ferienakademie" }}s{{ end }}</h3>
+            <ul>
+                {{ range where (site.GetPage $semester).Pages ".Params.format" "eq" . }}
+                <div class="outer-link--wrapper teaching-card">
+                    <a href="{{ with .Params.link }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}" {{ if .Params.link }}target="_blank"{{ end }}></a>
+                    <li class="inner-link--wrapper"><b class="link--internal">
+                        {{ if .Params.link }}
+                        {{ .Title }}</b> {{ with .Params.codes }}({{ delimit . ", " }}){{ end }}<a class="link--external" style="border-bottom: none"></a>
+                        {{ else }}
+                        {{ .Params.title }}
+                        </b>{{ with .Params.codes }}({{ delimit . ", " }}){{ end }}
+                        {{ end }}
+                        <br>
+                        {{ $contacts := slice}}
+                        {{ range .Params.contacts }}
+                        {{ if (.alias) }}
+                        {{ $contacts = append (partial "format_author_wo_prefix" (dict "author" .alias)) $contacts }}
+                        {{ else }}
+                        {{ $contacts = append (partial "format_author_wo_prefix" (dict "author" .)) $contacts}}
+                        {{ end }}
+                        {{ end }}
+                        {{ range .Params.instructors }}
+                        {{ if (site.GetPage (printf "%s" .alias)) }}
+                        {{ $contacts = append (partial "format_author_wo_prefix" (dict "author" .alias)) $contacts }}
+                        {{ else }}
+                        {{ $contacts = append (partial "format_author_wo_prefix" (dict "author" .)) $contacts}}
+                        {{ end }}
+                        {{ end }}
+                        <div class="teaching-format--contacts">
+                            {{ safeHTML (delimit $contacts ", " ", and ") }}
+                        </div>
+
+                    </li>
+                </div>
+                {{ end }}
+
+            </ul>
+        </div>
+    {{ end }}
+    </div>
+    {{ end }}
+    {{ end }}
+
+</main>
+{{ end }}

@@ -1,0 +1,158 @@
+{{ define "js_imports" }}
+<script type="module" src="{{ relURL "scripts/courselist-selector.js" }}"></script>
+{{ end }}
+
+
+{{ define "main" }}
+<main>
+    <article>
+        <h1>{{.Title}}</h1>
+        <!-- Handle personal subpages -->
+        {{ if .Params.has_subpages }}
+        {{ $img_src := "portrait.jpg"}}
+        {{ with .Params.portrait }} {{ $img_src = .}} {{ end }}
+        <div class="person-profile--wrapper">
+            {{ $image := .Page.Resources.GetMatch $img_src }}
+            {{ if $image }} {{ $image = $image.Resize "630x" }} {{ end }}
+            {{ with $image }}
+            <div class="auto-align-center">
+                <img class="profile-img" src="{{ .RelPermalink }}" class="auto-align-center">
+            </div>
+            {{ end }}
+            <div class="person-profile--text">
+                {{ with .Params.email }}
+                <div class="person-profile--card">
+                    <div>
+                        Email
+                    </div>
+                    <div>
+                        {{ partial "cloakemail" (dict "address" .) }}
+                        {{ with $.Page.Resources.GetMatch "smime.pem" }}
+                        (<a href="{{ .RelPermalink }}"{{ with $.Params.certificate}} title="Certificate Serial Number: {{.}}"{{end}}>S/MIME</a>)
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                {{ if or (isset .Params "office") (isset .Params "office_ext")  }}
+                <div class="person-profile--card">
+                    <div>
+                        Office
+                    </div>
+                    {{ with .Params.office }}
+                    {{/* -- MI --> */}}
+                    {{ if eq 1 (len (split . " ")) }}
+                    <a href="{{ replace (replace . "01.07." "https://nav.tum.de/room/5607.01.") "01.09" "https://nav.tum.de/room/5609.01" }}" target="_blank">{{ . }}</a>
+                    {{/* -- (Südostgelände) as suffix --> */}}
+                    {{ else if eq "(Südostgelände)" (index (split . " ") 1) }}
+                    <a href="{{ printf "https://nav.tum.de/view/0305.01.%s" (replace (index (split . " ") 0) "S1" "")}}" target="_blank">{{ . }}</a>
+                    {{ else }}
+                    {{ . }}
+                    {{ end }}
+                    {{ end }}{{ with .Params.office_ext }}{{ . | markdownify }}{{ end }}
+                </div>
+                {{ end }}
+                {{ with .Params.phone }}
+                <div class="person-profile--card">
+                    <div>
+                        Phone
+                    </div>
+                    <div>
+                        +49 89 289-{{ . }}
+                    </div>
+                </div>
+                {{ end }}
+                {{ if ne .Params.address false }}
+                <div class="person-profile--card">
+                    <div>
+                        Postal Address
+                    </div>
+                    <div>
+                        {{ with .Params.address }}
+                        {{ . | markdownify }}
+                        {{ else }}
+                        Technical University of Munich<br>
+                        {{with .Params.Prefix }}{{ . }} {{ end }}{{ .Params.firstname }} {{ .Params.lastname }}{{ with .Params.Suffix}}, {{ . }}{{ end }} (CIT–I1)<br>
+                        Boltzmannstraße 3<br>
+                        85748 Garching b. München
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                {{ with .Params.hours }}
+                <div class="person-profile--card">
+                    <div>
+                        Consultation
+                    </div>
+                    <div>
+                        {{ . | markdownify }}
+                    </div>
+                </div>
+                {{end }}
+                {{ with .Params.end_date }}
+                <div class="person-profile--card">
+                    <div>
+                        Member until
+                    </div>
+                    <div>
+                        {{ . | dateFormat "January 2006" }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+            <div>
+                {{ with .Params.social }}
+                {{ partial "format_social" (dict "social" . )}}
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </article>
+    <article>
+        {{.Content}}
+    </article>
+
+    <!-- field_dict: {idx: [h2_title, field_id]} -->
+    {{ $field_dict := dict
+        "01" (slice "Professors" "professor")
+        "02" (slice "Technology / Administration" "tech/admin")
+        "03" (slice "Scientific Staff" "scientific_staff")
+        "04" (slice "System Administration (Student Assistants)" "sysadmin")
+        "05" (slice "Student Assistants" "hiwi")
+    }}
+    {{ $pages := .Pages}}
+
+    {{ range $idx, $list := $field_dict }}
+        {{ $filtered := where $pages "Params.field" (index $list 1)}}
+        {{ if gt (len $filtered) 0 }}
+            <h2 id="{{ index $list 1 }}">{{ index $list 0 }}</h2>
+            <div class="people-wrapper">
+                {{ range $filtered }}
+                    {{ partial "person_card" (dict "person" .) }}
+                {{ end }}
+            </div>
+        {{ end }}
+    {{ end }}
+
+    {{with .Params.footer }}<div style="margin-top: 4em;">
+        {{ . | markdownify }}
+    </div>{{ end }}
+
+</main>
+{{ end }}
+
+{{ define "contact" }}
+{{ partial "rechte_randspalte" (dict
+"contact_title" "Head of Research Group"
+"color" "green"
+"name" "Prof. Dr. Stephan Krusche"
+"url" "people/krusche"
+"image" "images/portraits/krusche.jpg"
+) }}
+{{ with .Params.social }}
+{{ partial "rechte_randspalte" (dict
+"contact_title" "External Profiles"
+"social" .
+) }}
+{{ end }}
+{{ partial "toc" }}
+{{ end }}

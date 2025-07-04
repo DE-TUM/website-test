@@ -1,0 +1,11 @@
+
+<div class="box--wrapper">
+    {{ with .Get 0 }}
+    <div class="box--head">
+        {{ . }}
+    </div>
+    {{ end }}
+    <p>
+        {{ .Inner | markdownify }}
+    </p>
+</div>

@@ -1,0 +1,26 @@
+<a href="{{ .section.RelPermalink }}">
+    <div class="research-field">
+        <div class="research-field--title">
+            <h3>{{ .section.Title }}</h3>
+        </div>
+        <div class="research-field--body">
+            {{ with $image_path := .section.Params.image_path }}
+                {{ $parent := site.GetPage "research" }}
+                {{ $image := "" }}
+                {{ range (site.GetPage "research").Pages }}
+                    {{ range .Pages }}
+                        {{ with .Resources.GetMatch $image_path }} {{ $image = . }} {{ end }}
+                    {{ end }}
+                    {{ with .Resources.GetMatch $image_path }} {{ $image = . }} {{ end }}
+                {{ end }}
+                {{ if $image }}
+                <img src="{{ $image.RelPermalink }}">
+                {{ end }}
+            {{ end }}
+            <div><p>
+                {{ .section.Summary }}
+            </p></div>
+        </div>
+
+    </div>
+</a>

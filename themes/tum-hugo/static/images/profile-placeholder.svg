@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="23px" height="20px" viewBox="0 0 23 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: bin/sketchtool 1.4 (305) - http://www.bohemiancoding.com/sketch -->
+    <title>icn_person</title>
+    <desc>Created with bin/sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="vCards-Gruppen" sketch:type="MSArtboardGroup" transform="translate(-803.000000, -1390.000000)" fill="#808080">
+            <g id="Content" sketch:type="MSLayerGroup" transform="translate(66.000000, 142.000000)">
+                <g id="Group-Copy-9" transform="translate(211.000000, 1229.000000)" sketch:type="MSShapeGroup">
+                    <g id="Rectangle-1060-+-icn_person-Copy" transform="translate(514.000000, 0.000000)">
+                        <g id="icn_person" transform="translate(12.000000, 19.000000)">
+                            <path d="M11.5,1 C13.706,1 15.5,2.794 15.5,5 C15.5,7.206 13.706,9 11.5,9 C9.294,9 7.5,7.206 7.5,5 C7.5,2.794 9.294,1 11.5,1 M11.5,0 C8.739,0 6.5,2.239 6.5,5 C6.5,7.761 8.739,10 11.5,10 C14.261,10 16.5,7.761 16.5,5 C16.5,2.239 14.261,0 11.5,0 Z M17.239,13 C18.212,13 19.088,13.578 19.471,14.472 L21.412,19 L1.588,19 L3.529,14.472 C3.912,13.578 4.788,13 5.761,13 L17.239,13 Z M17.239,12 L5.761,12 C4.389,12 3.15,12.817 2.609,14.078 L0.071,20 L22.929,20 L20.391,14.078 C19.85,12.817 18.611,12 17.239,12"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
