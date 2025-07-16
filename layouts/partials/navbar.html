@@ -4,7 +4,7 @@
             <a class="nav-item--link" href="">ESWC 2026</a>
         </li>
 
-        <li class="nav-item {{ if eq .current "calls" }} nav-item--active {{ end }}" data-id="posts">
+        <li class="nav-item {{ if eq .current "calls" }} nav-item--active {{ end }}" data-id="calls">
             <a class="nav-item--link" href="calls" >Calls</a>
             <ul class="nav-submenu">
                 <li class="nav-submenu-item">
@@ -25,65 +25,20 @@
             </ul>
         </li>
 
-        <li class="nav-item" data-id="research">
+        <li class="nav-item" data-id="program">
             <a class="nav-item--link" href="program">Program</a>
-            {{ with .sublists }}
-            <ul class="nav-submenu">
-                {{ range $idx, $list := . }}
-                <li class="nav-submenu-item">
-                    <a href="research/{{ index $list 1}}" class="nav-submenu-item--link">
-                        {{ index $list 0}}
-                    </a>
-                </li>
-                {{ end }}
-            </ul>
-            {{ end }}
         </li>
 
-        <li class="nav-item" data-id="teaching">
+        <li class="nav-item" data-id="attending">
             <a class="nav-item--link nav-item-has-submenu" href="attending">Attending</a>
-            {{ with .sublists }}
-            <ul class="nav-submenu">
-                {{ range $_, $list := . }}
-                    <li class="nav-submenu-item">
-                        <a href="teaching/{{ index $list 1}}" class="nav-submenu-item--link">
-                            {{ index $list 0}}
-                        </a>
-                    </li>
-                {{ end }}
-            </ul>
-            {{ end }}
         </li>
 
-        <li class="nav-item" data-id="theses">
+        <li class="nav-item" data-id="sponsors-supporters">
             <a class="nav-item--link nav-item-has-submenu" href="sponsors-supporters">Sponsors and Supporters</a>
-            {{ with .sublists }}
-            <ul class="nav-submenu">
-                {{ range $_, $list := . }}
-                <li class="nav-submenu-item">
-                    <a href="theses/{{ index $list 1}}" class="nav-submenu-item--list">
-                        {{ index $list 0}}
-                    </a>
-                </li>
-                {{ end }}
-            </ul>
-            {{ end }}
         </li>
 
-        <li class="nav-item" data-id="projects">
+        <li class="nav-item" data-id="organization">
             <a class="nav-item--link nav-item-has-submenu {{ if eq .current "organization" }} nav-item--active {{ end }}" href="organization">Organization</a>
-            {{ with .sublists }}
-            <ul class="nav-submenu">
-                {{ range $_, $list := . }}
-                <li class="nav-submenu-item">
-                    <a href="projects/{{ index $list 1}}" class="nav-submenu--link">
-                        {{ index $list 0}}
-                    </a>
-                </li>
-                {{ end }}
-            </ul>
-            {{ end }}
-
         </li>
 
     </ul>
