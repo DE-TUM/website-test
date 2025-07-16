@@ -1,11 +1,28 @@
 <nav>
     <ul id="navbar" data-current="{{ .current }}">
         <li class="nav-item" data-id="home">
-            <a class="nav-item--link" href="">ESWC 2025</a>
+            <a class="nav-item--link" href="">ESWC 2026</a>
         </li>
 
-        <li class="nav-item" data-id="posts">
-            <a class="nav-item--link" href="calls">Calls</a>
+        <li class="nav-item {{ if eq .current "calls" }} nav-item--active {{ end }}" data-id="posts">
+            <a class="nav-item--link" href="calls" >Calls</a>
+            <ul class="nav-submenu">
+                <li class="nav-submenu-item">
+                    <a href="calls/contributions-eswc" class="nav-submenu-item--link">
+                        Call for Contributions: ESWC 2026
+                    </a>
+                </li>
+                <li class="nav-submenu-item">
+                    <a href="calls/papers-research-track" class="nav-submenu-item--link">
+                        Calls for Papers: Research Track
+                    </a>
+                </li>
+                <li class="nav-submenu-item">
+                    <a href="calls/papers-in-use-track" class="nav-submenu-item--link">
+                        Calls for Papers: In-Use Track
+                    </a>
+                </li>
+            </ul>
         </li>
 
         <li class="nav-item" data-id="research">
@@ -54,7 +71,7 @@
         </li>
 
         <li class="nav-item" data-id="projects">
-            <a class="nav-item--link nav-item-has-submenu" href="organization">Organization</a>
+            <a class="nav-item--link nav-item-has-submenu {{ if eq .current "organization" }} nav-item--active {{ end }}" href="organization">Organization</a>
             {{ with .sublists }}
             <ul class="nav-submenu">
                 {{ range $_, $list := . }}

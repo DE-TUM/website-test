@@ -1,13 +1,7 @@
 ---
-title: "Empowering Knowledge through Semantics: From Knowledge Graphs to Neurosemantics (ESWC)"
-subtitle: "June 1-5, 2026 | Portoz | Slovenia"
+title: "Program Overview"
 ---
-
-{{< image height=490px path="portoz.jpg" autoalign=true width="100%" sign="Portoz, Slovenia" expandable=true >}}
-
-## ESWC 2026 – Call for Contributions
-
-The Extended Semantic Web Conference (ESWC) is a major venue for academic research and developments in the area of the Semantic Web and Knowledge Graphs. The 22nd edition will take place from **June 1 to 5, 2025**, in **Portorož, Slovenia**.
+The Extended Semantic Web Conference (ESWC) is a major venue for academic research and developments in the area of the Semantic Web and Knowledge Graphs. The 22nd edition will take place from **June 1 to 5, 2026**, in **Portorož, Slovenia**.
 
 ---
 
@@ -25,14 +19,14 @@ ESWC 2026 features three primary submission tracks:
 
 (All deadlines are at 23:59 Anywhere on Earth (UTC–12))
 
-| Event                          | Date                         |
-|-------------------------------|------------------------------|
-| Abstract Submission (mandatory) | December 12, 2024            |
-| Paper Submission (hard deadline) | December 19, 2024          |
-| Rebuttal Period Opens           | January 27–29, 2025          |
-| Rebuttal Period Closes          | January 31–February 4, 2025  |
-| Notification to Authors         | February 24, 2025            |
-| Camera-Ready Papers Due         | March 27, 2025               |
+| Event                          | Date                        |
+|-------------------------------|-----------------------------|
+| Abstract Submission (mandatory) | December 12, 2025           |
+| Paper Submission (hard deadline) | December 19, 2025           |
+| Rebuttal Period Opens           | January 27–29, 2026         |
+| Rebuttal Period Closes          | January 31–February 4, 2026 |
+| Notification to Authors         | February 24, 2026           |
+| Camera-Ready Papers Due         | March 27, 2026              |
 
 ---
 
@@ -46,15 +40,15 @@ ESWC 2026 features three primary submission tracks:
 - Accepted papers will be published in **Springer's Lecture Notes in Computer Science (LNCS)** series. Open access preprints will also be available.
 - Abstracts must be submitted in advance of full papers.
 - Submissions must:
-  - Be written in **English**
-  - Not exceed **15 pages**, excluding references
-  - Be formatted in **PDF** or **HTML** using the [LNCS format](https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines)
-  - HTML submissions must follow the [HTML submission guide](#)
+    - Be written in **English**
+    - Not exceed **15 pages**, excluding references
+    - Be formatted in **PDF** or **HTML** using the [LNCS format](https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines)
+    - HTML submissions must follow the [HTML submission guide](#)
 
 - Review process:
-  - Research Track: Double-anonymous review
-  - In-Use and Resources Tracks: Single-anonymous review
-  - Authors may submit a rebuttal during the rebuttal period
+    - Research Track: Double-anonymous review
+    - In-Use and Resources Tracks: Single-anonymous review
+    - Authors may submit a rebuttal during the rebuttal period
 
 - At least one author of each accepted contribution must register and attend the conference to present.
 - Submission is handled via [EasyChair](https://easychair.org/). Be sure to select the correct track when submitting.

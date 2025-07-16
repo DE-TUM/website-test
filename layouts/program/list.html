@@ -11,15 +11,19 @@
         </li>
         {{ end }}
     </ul>
+    <h2>Schedule</h2>
+    <section class="container-full">
+        <div class="container-full">
+            {{ range site.Data.schedule.days }}
+            {{ partial "schedule-table.html" . }}
+            {{ end }}
+        </div>
+    </section>
 </main>
 {{ end }}
 
 {{ define "navbar" }}
-
 {{ partial "navbar.html" (dict 
-  "current" "calls"
-  "subnavbar" (slice
-  (dict "Calls for Papers: Research Track" "https://example.com")
-  )
+  "current" "program"
 )}}
 {{ end }}

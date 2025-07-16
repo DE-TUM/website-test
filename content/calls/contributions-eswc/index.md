@@ -1,13 +1,13 @@
 ---
-title: "Call for Contributions: ESWC 2025"
+title: "Call for Contributions: ESWC 2026"
 ---
-The Extended Semantic Web Conference (ESWC) is a major venue for academic research and developments in the area of the Semantic Web and Knowledge Graphs. The 22nd edition will take place from **June 1 to 5, 2025**, in **Portorož, Slovenia**.
+The Extended Semantic Web Conference (ESWC) is a major venue for academic research and developments in the area of the Semantic Web and Knowledge Graphs. The 22nd edition will take place from **June 1 to 5, 2026**, in **Portorož, Slovenia**.
 
 ---
 
 ## Main Tracks
 
-ESWC 2025 features three primary submission tracks:
+ESWC 2026 features three primary submission tracks:
 
 - **Research Track** – for novel research contributions
 - **In-Use Track** – for practical applications of semantic technologies
@@ -19,14 +19,14 @@ ESWC 2025 features three primary submission tracks:
 
 (All deadlines are at 23:59 Anywhere on Earth (UTC–12))
 
-| Event                          | Date                         |
-|-------------------------------|------------------------------|
-| Abstract Submission (mandatory) | December 12, 2024            |
-| Paper Submission (hard deadline) | December 19, 2024          |
-| Rebuttal Period Opens           | January 27–29, 2025          |
-| Rebuttal Period Closes          | January 31–February 4, 2025  |
-| Notification to Authors         | February 24, 2025            |
-| Camera-Ready Papers Due         | March 27, 2025               |
+| Event                          | Date                        |
+|-------------------------------|-----------------------------|
+| Abstract Submission (mandatory) | December 12, 2025           |
+| Paper Submission (hard deadline) | December 19, 2025           |
+| Rebuttal Period Opens           | January 27–29, 2026         |
+| Rebuttal Period Closes          | January 31–February 4, 2026 |
+| Notification to Authors         | February 24, 2026           |
+| Camera-Ready Papers Due         | March 27, 2026              |
 
 ---
 
@@ -57,7 +57,7 @@ ESWC 2025 features three primary submission tracks:
 
 ## Policy on Use of Generative AI Tools
 
-For ESWC 2025, we follow the ACM Policy on Authorship regarding the use of Generative AI:
+For ESWC 2026, we follow the ACM Policy on Authorship regarding the use of Generative AI:
 
 > "Generative AI tools (e.g., ChatGPT) may not be listed as authors. Their use is allowed, but must be **disclosed** in the Acknowledgements section.  
 > Example: *'ChatGPT was used to generate sections of this work, including text, tables, graphs, or code.'*

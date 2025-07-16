@@ -6,14 +6,17 @@
             {{ .Content }}
         </article>
     </div>
-    <section style="margin-top: 4rem;">
-        {{ partial "social-share.html" (dict "url" .Permalink "title" .Title "show" (slice "facebook" "linkedin")) }}
+    <section>
+        <h2>Schedule</h2>
+        {{ range site.Data.schedule.days }}
+            {{ partial "schedule-table.html" . }}
+        {{ end }}
     </section>
 </main>
 {{ end }}
 
 {{ define "navbar" }}
 {{ partial "navbar.html" (dict
-"current" "calls"
+"current" "program"
 )}}
 {{ end }}

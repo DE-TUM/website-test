@@ -56,7 +56,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      url: "http://2025.eswc-conferences.org/"
+      url: "http://2026.eswc-conferences.org/"
       name: "Production"
     steps:
       - uses: actions/download-artifact@v4
@@ -67,7 +67,7 @@ jobs:
       - name: Copy site to server
         uses: appleboy/scp-action@master
         with:
-          host: 2025.eswc-conferences.org
+          host: 2026.eswc-conferences.org
           username: ${{ secrets.PRODUCTION_SSH_USER }}
           key: ${{ secrets.PRODUCTION_SSH_PRIVATE }}
           proxy_host: ${{ secrets.PROXY_HOST }}
@@ -80,7 +80,7 @@ jobs:
       - name: Move site to www
         uses: appleboy/ssh-action@master
         with:
-          host: 2025.eswc-conferences.org
+          host: 2026.eswc-conferences.org
           username: ${{ secrets.PRODUCTION_SSH_USER }}
           key: ${{ secrets.PRODUCTION_SSH_PRIVATE }}
           proxy_host: ${{ secrets.PROXY_HOST }}
@@ -88,7 +88,7 @@ jobs:
           proxy_key: ${{ secrets.PROXY_KEY }}
           proxy_port: ${{ secrets.PROXY_PORT }}
           script: |
-            sudo rm -rf /var/www/2025.eswc-conferences.org/
-            sudo mkdir -p /var/www/2025.eswc-conferences.org/
-            sudo cp -R public/* /var/www/2025.eswc-conferences.org/
+            sudo rm -rf /var/www/2026.eswc-conferences.org/
+            sudo mkdir -p /var/www/2026.eswc-conferences.org/
+            sudo cp -R public/* /var/www/2026.eswc-conferences.org/
             sudo rm -R public
