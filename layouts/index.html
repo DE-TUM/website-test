@@ -8,15 +8,25 @@
 
 {{ define "main" }}
 <main aria-role="main">
-    <div style="text-align: center">
-        <h1 style="margin-top: 20px">{{.Title}}</h1>
+    <div class="container-full" style="
+    text-align: center;
+    width: 100%;
+    padding: 25vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.35)), url('/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+">
+        <h1 style="margin-top: 20px; text-align: center; color: white">{{.Title}}</h1>
         {{ with .Params.subtitle }}
-        <span class="subtitle">{{.}}</span>
+        <span style="color: white" class="subtitle">{{.}}</span>
         {{ end }}
     </div>
     <div class="homepage-content" style="margin-top: 5vh">
         {{.Content}}
     </div>
-    
 </main>
 {{ end }}

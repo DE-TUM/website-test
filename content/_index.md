@@ -3,8 +3,6 @@ title: "23rd European Semantic Web Conference (ESWC)"
 subtitle: "May 10-14, 2026 | Dubrovnik | Croatia"
 ---
 
-{{< image height=490px path="portoz.jpg" autoalign=true width="100%" sign="Portoz, Slovenia" expandable=true >}}
-
 ## ESWC 2026 – Call for Contributions
 
 The Extended Semantic Web Conference (ESWC) is a major venue for academic research and developments in the area of the Semantic Web and Knowledge Graphs. The 22nd edition will take place from **June 1 to 5, 2025**, in **Portorož, Slovenia**.
