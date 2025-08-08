@@ -1,7 +1,7 @@
 name: Deploy Hugo site to GitHub Pages
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
   push:
     branches: [ main ]
 
@@ -14,25 +14,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout (with submodules)
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: recursive
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.148.2'
           extended: true
-
-      - name: Sanity check theme presence
+          
+      - name: Build site with Pages baseURL
         run: |
-          test -d themes/tum-hugo || (echo "themes/tum-hugo missing" && exit 1)
-          ls -l themes/tum-hugo/layouts/partials | sed -n '1,150p' || true
-
-      - name: Build site
-        run: hugo --minify
+          echo "Using baseURL: ${{ steps.pages.outputs.base_url }}/"
+          hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/" --appendPort=false
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
