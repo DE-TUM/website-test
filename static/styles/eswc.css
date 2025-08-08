@@ -75,3 +75,10 @@ h2 {
 .nav-item:hover > .nav-item--link::after {
     transform: rotate(180deg); /* flip ▼ to look like ▲ */
 }
+
+#header-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
