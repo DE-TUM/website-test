@@ -1,0 +1,11 @@
+{{ $account := .Get "account" }}
+{{ $theme := .Get "theme" | default "light" }}
+{{ $style := .Get "style" | default "border:none;overflow:hidden;width:100%;height:600px;" }}
+
+{{ partial "mastodon-embed.html" (dict
+"account" $account
+"theme" $theme
+"width" (.Get "width")
+"height" (.Get "height")
+"style" $style
+) }}

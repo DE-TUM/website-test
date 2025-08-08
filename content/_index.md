@@ -3,9 +3,16 @@ title: "23rd European Semantic Web Conference (ESWC)"
 subtitle: "May 10-14, 2026 | Dubrovnik | Croatia"
 ---
 
-## ESWC 2026 – Call for Contributions
+## News & Events
 
-The Extended Semantic Web Conference (ESWC) is a major venue for academic research and developments in the area of the Semantic Web and Knowledge Graphs. The 22nd edition will take place from **June 1 to 5, 2025**, in **Portorož, Slovenia**.
+{{< mastodon account="https%3A%2F%2Fmastodon.social%2Fusers%2Fgargron" theme="dark" style="max-width:800px;width:100%;height:350px;border:1px solid #ccc;display:block;margin-left:auto;margin-right:auto;" width="800" height="550" >}}
+
+## About ESWC
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Call for Contributions
+
+he Extended Semantic Web Conference (ESWC) is a major venue for academic research and developments in the area of the Semantic Web and Knowledge Graphs. The 22nd edition will take place from **June 1 to 5, 2026**, in **Portorož, Slovenia**.
 
 ---
 
@@ -23,14 +30,14 @@ ESWC 2026 features three primary submission tracks:
 
 (All deadlines are at 23:59 Anywhere on Earth (UTC–12))
 
-| Event                          | Date                         |
-|-------------------------------|------------------------------|
-| Abstract Submission (mandatory) | December 12, 2024            |
-| Paper Submission (hard deadline) | December 19, 2024          |
-| Rebuttal Period Opens           | January 27–29, 2025          |
-| Rebuttal Period Closes          | January 31–February 4, 2025  |
-| Notification to Authors         | February 24, 2025            |
-| Camera-Ready Papers Due         | March 27, 2025               |
+| Event                          | Date                        |
+|-------------------------------|-----------------------------|
+| Abstract Submission (mandatory) | December 12, 2025           |
+| Paper Submission (hard deadline) | December 19, 2025           |
+| Rebuttal Period Opens           | January 27–29, 2026         |
+| Rebuttal Period Closes          | January 31–February 4, 2026 |
+| Notification to Authors         | February 24, 2026           |
+| Camera-Ready Papers Due         | March 27, 2026              |
 
 ---
 
@@ -44,15 +51,15 @@ ESWC 2026 features three primary submission tracks:
 - Accepted papers will be published in **Springer's Lecture Notes in Computer Science (LNCS)** series. Open access preprints will also be available.
 - Abstracts must be submitted in advance of full papers.
 - Submissions must:
-  - Be written in **English**
-  - Not exceed **15 pages**, excluding references
-  - Be formatted in **PDF** or **HTML** using the [LNCS format](https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines)
-  - HTML submissions must follow the [HTML submission guide](#)
+    - Be written in **English**
+    - Not exceed **15 pages**, excluding references
+    - Be formatted in **PDF** or **HTML** using the [LNCS format](https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines)
+    - HTML submissions must follow the [HTML submission guide](#)
 
 - Review process:
-  - Research Track: Double-anonymous review
-  - In-Use and Resources Tracks: Single-anonymous review
-  - Authors may submit a rebuttal during the rebuttal period
+    - Research Track: Double-anonymous review
+    - In-Use and Resources Tracks: Single-anonymous review
+    - Authors may submit a rebuttal during the rebuttal period
 
 - At least one author of each accepted contribution must register and attend the conference to present.
 - Submission is handled via [EasyChair](https://easychair.org/). Be sure to select the correct track when submitting.

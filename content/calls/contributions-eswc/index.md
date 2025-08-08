@@ -1,5 +1,7 @@
 ---
 title: "Call for Contributions: ESWC 2026"
+aliases:
+  - /contributions
 ---
 The Extended Semantic Web Conference (ESWC) is a major venue for academic research and developments in the area of the Semantic Web and Knowledge Graphs. The 22nd edition will take place from **June 1 to 5, 2026**, in **Portorož, Slovenia**.
 
