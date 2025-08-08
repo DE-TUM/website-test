@@ -1,14 +1,1 @@
 baseURL: 'https://de-tum.github.io/website-test/'
-languageCode: en-us
-title: 2026 ESWC Conference
-
-enableGitInfo: true
-enableRobotsTXT: true
-
-disableKinds:
-  - taxonomy
-  - term
-  - RSS
-
-theme:
-  - "tum-hugo"

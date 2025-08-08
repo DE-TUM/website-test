@@ -33,7 +33,7 @@ jobs:
       - name: Build site with Pages baseURL
         run: |
           echo "Using baseURL: ${{ steps.pages.outputs.base_url }}/"
-          hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+          hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/ --config config/_default/config.yaml,config/_default/ghpages.yaml"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
