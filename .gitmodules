@@ -1,0 +1,3 @@
+[submodule "themes/tum-hugo"]
+	path = themes/tum-hugo
+	url = https://github.com/ls1intum/tum-hugo-theme.git
