@@ -1,6 +1,6 @@
 ---
-title: "Empowering Knowledge through Semantics: From Knowledge Graphs to Neurosemantics (ESWC)"
-subtitle: "June 1-5, 2026 | Portoz | Slovenia"
+title: "23rd European Semantic Web Conference (ESWC)"
+subtitle: "May 10-14, 2026 | Dubrovnik | Croatia"
 ---
 
 {{< image height=490px path="portoz.jpg" autoalign=true width="100%" sign="Portoz, Slovenia" expandable=true >}}
