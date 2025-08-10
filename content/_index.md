@@ -2,93 +2,18 @@
 title: "23rd European Semantic Web Conference (ESWC)"
 subtitle: "May 10-14, 2026 | Dubrovnik | Croatia"
 ---
-
-## News & Events
-
-{{< mastodon account="https%3A%2F%2Fmastodon.social%2Fusers%2Fgargron" theme="dark" style="max-width:800px;width:100%;height:350px;border:1px solid #ccc;display:block;margin-left:auto;margin-right:auto;" width="800" height="550" >}}
-
 ## About ESWC
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The Extended Semantic Web Conference is a major venue for discussing the latest scientific results and technology innovations around semantic technologies. Building on its past success, ESWC is seeking to broaden its focus to span other relevant related research areas in which Web semantics plays an important role.
 
-## Call for Contributions
+The goal of the Semantic Web is to create a Web of knowledge and services in which the semantics of content is made explicit and content is linked to both other content and services allowing novel applications to combine content from heterogeneous sites in unforeseen ways and support enhanced matching between users needs and content. This network of knowledge-based functionality will weave together a large network of human knowledge, and make this knowledge machine-processable to support intelligent behaviour by machines. Creating such an interlinked Web of knowledge which spans unstructured text, structured data  as well as multimedia content and services requires the collaboration of many disciplines, including but not limited to: Artificial Intelligence, Natural Language Processing, Databases and Information Systems, Information Retrieval, Machine Learning, Multimedia, Distributed Systems, Social Networks, Web Engineering, and Web Science. These complementarities are reflected in the outline of the technical program of the ESWC 2024. ESWC 2024 will present the latest results in research, technologies and applications in its field. Besides the technical program organized over numerous tracks, the conference will feature a workshop and tutorial program, system descriptions and demos, a posters exhibition and a doctoral symposium.
 
-he Extended Semantic Web Conference (ESWC) is a major venue for academic research and developments in the area of the Semantic Web and Knowledge Graphs. The 22nd edition will take place from **June 1 to 5, 2026**, in **Portorož, Slovenia**.
+All information on the ESWC conference series and past conferences can be found at www.eswc-conferences.org.
 
----
 
-## Main Tracks
 
-ESWC 2026 features three primary submission tracks:
 
-- **Research Track** – for novel research contributions
-- **In-Use Track** – for practical applications of semantic technologies
-- **Resources Track** – for data and software that support the community
 
----
 
-## Important Dates
 
-(All deadlines are at 23:59 Anywhere on Earth (UTC–12))
 
-| Event                          | Date                        |
-|-------------------------------|-----------------------------|
-| Abstract Submission (mandatory) | December 12, 2025           |
-| Paper Submission (hard deadline) | December 19, 2025           |
-| Rebuttal Period Opens           | January 27–29, 2026         |
-| Rebuttal Period Closes          | January 31–February 4, 2026 |
-| Notification to Authors         | February 24, 2026           |
-| Camera-Ready Papers Due         | March 27, 2026              |
 
----
-
-## Submission Guidelines
-
-- ESWC welcomes original research and application submissions covering all aspects of Semantic Web technologies and Knowledge Graphs.
-- Submissions should be original, present significant results, and include rigorous, principled, and repeatable evaluations.
-- Changes in authorship after acceptance are not permitted.
-- Authors are encouraged to link datasets, evaluation code, demos, and other supporting materials.
-- Work under review or already published elsewhere, including in other ESWC tracks, will not be accepted.
-- Accepted papers will be published in **Springer's Lecture Notes in Computer Science (LNCS)** series. Open access preprints will also be available.
-- Abstracts must be submitted in advance of full papers.
-- Submissions must:
-    - Be written in **English**
-    - Not exceed **15 pages**, excluding references
-    - Be formatted in **PDF** or **HTML** using the [LNCS format](https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines)
-    - HTML submissions must follow the [HTML submission guide](#)
-
-- Review process:
-    - Research Track: Double-anonymous review
-    - In-Use and Resources Tracks: Single-anonymous review
-    - Authors may submit a rebuttal during the rebuttal period
-
-- At least one author of each accepted contribution must register and attend the conference to present.
-- Submission is handled via [EasyChair](https://easychair.org/). Be sure to select the correct track when submitting.
-
----
-
-## Policy on Use of Generative AI Tools
-
-For ESWC 2026, we follow the ACM Policy on Authorship regarding the use of Generative AI:
-
-> "Generative AI tools (e.g., ChatGPT) may not be listed as authors. Their use is allowed, but must be **disclosed** in the Acknowledgements section.  
-> Example: *'ChatGPT was used to generate sections of this work, including text, tables, graphs, or code.'*
->
-> Tools that perform spelling/grammar checks or basic language translation do **not** require disclosure."
-
-If in doubt, disclose. For any questions about this policy, please contact the organizing committee.
-
----
-
-## Program Chairs
-
-### Research Track
-- **Maribel Acosta** – Technical University of Munich, Germany
-- **María Poveda-Villalón** – Universidad Politécnica de Madrid, Spain
-
-### In-Use Track
-- **Marieke van Erp** – KNAW Humanities Cluster, Netherlands
-- **Adegboyega Ojo** – Carleton University, Canada
-
-### Resources Track
-- **Katja Hose** – TU Wien, Austria
-- **Cogan Shimizu** – Wright State University, USA

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="theme-color" content="rgb(48, 112, 179)">
+  <meta name="theme-color" content="rgb(25, 112, 250)">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
   <base href="{{ relURL "" }}">
 
@@ -17,9 +17,9 @@
   <link rel="stylesheet" href="{{ relURL "styles/eswc.css" }}">
 
 
-  <link rel="shortcut icon" type="image/x-icon" sizes="32x32" href="{{ relURL "favicon_32x32.ico" }}">
-  <link rel="icon" type="image/x-icon" sizes="32x32" href="{{ relURL "favicon_32x32.ico" }}">
-  <link rel="apple-touch-icon" href="{{ relURL "favicon_32x32.ico" }}">
+  <link rel="shortcut icon" type="image/x-icon" sizes="32x32" href="{{ relURL "favicon.ico" }}">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="{{ relURL "favicon.ico" }}">
+  <link rel="apple-touch-icon" href="{{ relURL "favicon.ico" }}">
 
   <script type="module" src="{{ relURL "scripts/index.js" }}"></script>
   <script type="module" src="{{ relURL "scripts/eswc.js" }}"></script>
@@ -43,14 +43,16 @@
     <div>
       <div id="header-list">
         <div id="header-logo">
-          <a href="{{ relURL "" }}" title="Startseite" target="_self" id="header-logo">
+          <a href="{{ relURL "" }}" title="ESWC 2026" target="_self" id="header-logo">
           <img src="images/2026-logo.png" alt="Logo" style="width: 60px; height: auto;">
           </a>
         </div>
-        <ul>
+          <!--
+          <ul>
           <li><a href="/">ESWC 2026</a></li>
-          <li><a href="https://www.cit.tum.de/cit/startseite/" target="_blank">Dubrovnik, Croatia</a></li>
+          <li><a href="https://2026.eswc-conferences.org/" target="_blank">Dubrovnik, Croatia</a></li>
         </ul>
+          -->
       </div>
       <div id="navbar--wrapper">
         {{ block "navbar" . }}

@@ -15,18 +15,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.35)), url('{{ relURL "/website-test/images/bg.jpg"}}');
+    background: linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.35)), url('{{ absURL "/images/bg.jpg"}}');
     background-size: cover;
     background-position: center;
     color: white;
-">
-        <h1 style="margin-top: 20px; text-align: center; color: white">{{.Title}}</h1>
-        {{ with .Params.subtitle }}
-        <span style="color: white" class="subtitle">{{.}}</span>
-        {{ end }}
+    ">
+    <h1 style="margin-top: 20px; text-align: center; color: white">{{.Title}}</h1>
+    {{ with .Params.subtitle }}
+    <span style="color: white" class="subtitle">{{.}}</span>
+    {{ end }}
     </div>
-    <div class="homepage-content" style="margin-top: 5vh">
-        {{.Content}}
+    <div class="homepage-content" style="margin-top: 3vh">
+        <div class="two-cols">
+            <div class="left">{{.Content}}</div>
+            <div class="right" style="margin-top: 9vh">
+                <iframe
+                        src="https://mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Fsigmoid.social%2Fusers%2Feswc_conf&theme=dark&size=70&boosts=true&replies=false"
+                        style="width:100%;height:640px;border:1px solid #ccc;display:block;margin-left:auto;margin-right:auto;"
+                        width="800"
+                        height="550"
+                        frameborder="0"
+                        scrolling="yes"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
     </div>
 </main>
 {{ end }}
