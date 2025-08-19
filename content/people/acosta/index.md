@@ -1,17 +1,14 @@
 ---
-title: FIRSTNAME {{ replace .Name "-" " " | title }}
-linkTitle: {{ replace .Name "-" " " | title }}, FIRSTNAME
-weight: n
-field: scientific_staff|professor|tech/admin|sysadmin|hiwi
-firstname: FIRSTNAME
-lastname: {{ replace .Name "-" " " | title }}
+title: Maribel Acosta
+linkTitle: Acosta, Maribel
+weight: 1
+field: general_chair
+firstname: Maribel
+lastname: Acosta
 prefix: prefix
 suffix: suffix
-email: email
-certificate: certificate
-phone: phone_suffix
-office: 01.07.0{office}
-hours: A custom message to be displayed on the office hours page
+email: maribel.acosta@ini.rub.de
+certificate:
 portrait: "portrait.jpg"
 social:
     web: website 
@@ -23,9 +20,8 @@ social:
     dblp: dplb
 research:
 - tag
-- ...
 aliases:
-- {{ printf "/%s" .Name }}
+- /acosta
 ---
 
 Content can be written here in markdown. Check existing references for examples and have a look at the
