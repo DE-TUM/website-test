@@ -1,0 +1,13 @@
+<ul id="breadcrumbs">
+    <li><a href="/">Home</a></li>
+    {{ $path := "" }}
+    {{ range first (sub (len (split .link "/")) 1) (split .link "/") }}
+    {{ if gt (len .) 0 }}
+        {{ $path = printf "%s/%s" $path . }}
+        {{ $local := site.GetPage $path }}
+        <li><a href="{{ (site.GetPage $path).Permalink }}">
+            {{ $local.Title}}
+        </a></li>
+    {{ end }}
+    {{ end }}
+</ul>

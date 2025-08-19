@@ -1,0 +1,25 @@
+{{ $image := ""}}
+{{ if .Get "path" }}
+  {{ $image = (.Page.Resources.GetMatch (.Get "path")) }}
+  {{ if not $image }}
+    {{ $image = .Page.Parent.Resources.GetMatch (.Get "path") }}
+  {{ end }}
+  {{ if $image }}
+  {{ $image = $image.RelPermalink }}
+  {{ else }}
+  {{ $image = printf "%s%s" site.BaseURL (.Get "path") }}
+  {{ end }}
+{{ else if .Get "src" }}
+  {{ $image = .Get "src" }}
+{{ end }}
+
+
+<div style="{{ if .Get "inline" }} width:{{ .Get "width"}} {{ end }}" class="csc-textpic-imagewrap {{ if .Get "autoalign" }}auto-align-center {{ end }}{{ if .Get "inline" }}image--inline {{ end }}{{ if .Get "expandable" }}image--expandable {{ end }} ">
+  <dl class="csc-textpic-image csc-textpic-last {{ if .Get "autoalign" }}auto-align-center{{ end }}">
+    <img style="{{ with .Get "height" }}max-height: {{ . }}; object-fit: scale-down; object-position: 50% bottom{{ end }}"
+            src="{{ $image }}" alt="{{ .Get "alt" }}" title="{{ .Get "title" }}" height="auto" width={{ if not (.Get "inline") }}{{ .Get "width" }}{{ end }}>
+    <dd class="csc-textpic-caption">{{ .Get "sign" }}
+      <span class="imagecopyright">{{ .Get "copyright" }}</span>
+    </dd>
+  </dl>
+</div>

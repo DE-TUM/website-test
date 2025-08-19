@@ -1,0 +1,38 @@
+{{ define "title" }}
+{{ .Site.Title }}
+{{ end }}
+
+{{ define "breadcrumbs" }}
+<p style="display: none"></p>
+{{ end }}
+
+{{ define "main" }}
+<main aria-role="main">
+    <div style="text-align: center">
+        <h1 style="margin-top: 20px">{{.Title}}</h1>
+        {{ with .Params.subtitle }}
+        <span class="subtitle">{{.}}</span>
+        {{ end }}
+    </div>
+    <div class="homepage-content" style="margin-top: 5vh">
+        {{.Content}}
+    </div>
+
+    <div style="text-align: center; margin-top: 10vh;">
+        <a href="posts"><h2>Latest News and Events</h2></a>
+    </div>
+    <div class="container-full">
+        <div style="overflow: scroll">
+            <div class="carousel">
+                {{ range first 5 (where $.Site.RegularPages "Section" "posts").ByDate.Reverse }}
+                {{ partial "card" (dict "post" . )}}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    
+</main>
+{{ end }}

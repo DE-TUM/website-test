@@ -1,0 +1,234 @@
+<!-- Iterate by all 3 parameters -->
+{{ $by_state := slice }}
+{{ $by_tags := slice }}
+{{ $by_advisor := slice }}
+{{ $by_supervisor := slice }}
+
+{{ $current_year := 0 }}
+{{ $advisor := .Get "advisor" }}
+{{ $supervisor := .Get "supervisor" }}
+{{ $state := .Get "state" }}
+{{ $tags := slice }}
+{{ $search_tags := .Get "by_tags" }}
+{{ if $search_tags }} {{ $tags = .Page.Params.tags }} {{ end }}
+
+{{ range $site := (site.GetPage "/theses").Pages }}
+    {{ if $state }}
+        {{ if eq .Params.state $state }}
+            {{ $by_state = append . $by_state }}
+        {{ end }}
+    {{ else }}
+        {{ $by_state = append . $by_state }}
+    {{ end }}
+    {{ if $advisor }}
+        {{ if (in .Params.advisors $advisor) }}
+            {{ $by_advisor = append . $by_advisor }}
+        {{ end }}
+    {{ else }}
+        {{ $by_advisor = append . $by_advisor }}
+    {{ end }}
+    {{ if $supervisor }}
+        {{ if (in .Params.supervisors $supervisor) }}
+            {{ $by_supervisor = append . $by_supervisor }}
+        {{ end }}
+    {{ else }}
+        {{ $by_supervisor = append . $by_supervisor }}
+    {{ end }}
+    {{ if $search_tags }}
+        {{ range .Params.tags }}
+            {{ if in $tags .}}
+                {{ $by_tags = append $site $by_tags }}
+            {{ end }}
+        {{ end }}
+    {{ else }}
+        {{ $by_tags = append . $by_tags }}
+    {{ end }}
+{{ end }}
+
+{{ $displayed := slice }}
+{{ range uniq $by_tags }}
+    {{ if and (and (in $by_advisor .) (in $by_state .)) (in $by_supervisor .) }}
+        {{ if .Params.end_date }}
+            {{ $local_year := int ((time .Params.end_date).Format "2006") }}
+            {{ if ge $local_year $current_year }}
+                {{ $current_year = add $local_year 1 }}
+            {{ end }}
+        {{ end }}
+        {{ $displayed = append . $displayed}}
+    {{ end }}
+{{ end }}
+
+<!-- Format output -->
+<!-- Open -->
+{{ if eq (.Get "state") "open" }}
+<div class="theses--wrapper container">
+    {{ range $displayed }}
+    <table class="theses--table">
+        <tbody>
+        <tr>
+            <td>
+                {{ $target := .Params.targets }}
+                {{ if eq (len $target) 1 }}
+                {{ $target = printf "%s's Theses" (index $target 0) }}
+                {{ else }}
+                {{ $target = delimit .Params.targets " / " }}
+                {{ end }}
+                <b>{{ title $target }}</b>
+            </td>
+            <td>
+                <b><a href="{{ .RelPermalink }}">{{ .Title }}</a></b>
+                {{ if .Params.link }}<a href="{{ .Params.Link }}" target="_blank">({{ .Params.link }})</a>{{ end }}
+            </td>
+        </tr>
+        <tr>
+            <td>Year</td>
+            <td>{{ .Params.date.Format "2006"}}</td>
+        </tr>
+        <tr>
+            <td>Advisor(s)</td>
+            <td>
+                {{ $advisors := slice }}
+                {{ range .Params.advisors }}
+                {{ $advisors = append (partial "format_author" (dict "author" .)) $advisors }}
+                {{ end }}
+                {{ safeHTML (delimit $advisors "," ", and ") }}
+            </td>
+        </tr>
+        {{ with .Params.supervisors }}
+        <tr>
+            <td>Supervisor(s)</td>
+            <td>
+                {{ $supervisors := slice }}
+                {{ range . }}
+                    {{ $supervisors = append (partial "format_author" (dict "author" .)) $supervisors }}
+                {{ end }}
+                {{ safeHTML (delimit $supervisors "," ", and ") }}
+            </td>
+        </tr>
+        {{ end }}
+        <tr>
+            <td>
+                Abstract
+            </td>
+            <td class="theses--content">
+                <a href="{{ .RelPermalink }}"><p>{{ .Summary }}</p></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    {{ end }}
+</div>
+
+<!-- In progress -->
+{{ else if eq (.Get "state") "in_progress" }}
+<div class="theses--wrapper container">
+    {{ range sort $displayed ".Params.start_date" }}
+    <table class="theses--table">
+        <tbody>
+        <tr>
+            <td>
+                {{ $target := .Params.targets }}
+                {{ if eq (len $target) 1 }}
+                {{ $target = printf "%s's Theses" (index $target 0) }}
+                {{ else }}
+                {{ $target = delimit .Params.targets " / " }}
+                {{ end }}
+                <b>{{ title $target }}</b>
+            </td>
+            <td>
+                <b><a href="{{ .RelPermalink }}">{{ .Title }}</a></b>
+                {{ if .Params.link }}<a href="{{ .Params.Link }}" target="_blank">({{ .Params.link }})</a>{{ end }}
+            </td>
+        </tr>
+        <tr>
+            <td>Start Date</td>
+            <td>{{ (time .Params.start_date).Format "January 2006" }}</td>
+        </tr>
+        <tr>
+            <td>Advisor(s)</td>
+            <td>
+                {{ $advisors := slice }}
+                {{ range .Params.advisors }}
+                {{ $advisors = append (partial "format_author" (dict "author" .)) $advisors }}
+                {{ end }}
+                {{ safeHTML (delimit $advisors "," ", and ") }}
+            </td>
+        </tr>
+        {{ with .Params.supervisors }}
+        <tr>
+            <td>Supervisor(s)</td>
+            <td>
+                {{ $supervisors := slice }}
+                {{ range . }}
+                {{ $supervisors = append (partial "format_author" (dict "author" .)) $supervisors }}
+                {{ end }}
+                {{ safeHTML (delimit $supervisors "," ", and ") }}
+            </td>
+        </tr>
+        {{ end }}
+        {{ with .Params.student }}
+        <tr>
+            <td>Student</td>
+            <td>
+                {{ . }}
+            </td>
+        </tr>
+        {{ end }}
+        <tr>
+            <td>
+                Abstract
+            </td>
+            <td class="theses--content">
+                <a href="{{ .RelPermalink }}"><p>{{ .Summary }}</p></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    {{ end }}
+</div>
+
+<!-- Done -->
+{{ else if eq (.Get "state") "finished" }}
+<div style="overflow-x: scroll">
+    <table>
+        <thead>
+        <tr>
+            <th>Student</th>
+            <th>Advisor(s)</th>
+            <th>Supervisor(s)</th>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Year</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range (sort $displayed ".Params.end_date" "desc") }}
+        <tr onclick="window.location.href={{ .RelPermalink }}" class="tr-clickable">
+            <td>{{ .Params.student }}</td>
+            <td>
+                {{ $advisors := slice }}
+                {{ range .Params.advisors }}
+                {{ $advisors = append (partial "format_author" (dict "author" .)) $advisors }}
+                {{ end }}
+                {{ safeHTML (delimit $advisors "," ", and ") }}
+            </td>
+            <td>
+                {{ $supervisors := slice }}
+                {{ range .Params.supervisors }}
+                {{ $supervisors = append (partial "format_author" (dict "author" .)) $supervisors }}
+                {{ end }}
+                {{ safeHTML (delimit $supervisors "," ", and ") }}
+            </td>
+            <td><a href="{{ .RelPermalink }}">{{ .Params.title }}</a></td>
+            <td>{{ title (index .Params.targets 0) }}'s Theses</td>
+            <td>{{ (time .Params.start_date).Format "01/2006" }} - {{ (time .Params.end_date).Format "01/2006" }}</td>
+        </tr>
+        {{ end }}
+        </tbody>
+    </table>
+</div>
+{{ end }}
+
+{{ if eq (len $displayed) 0 }}
+<p>No theses found</p>
+{{ end }}

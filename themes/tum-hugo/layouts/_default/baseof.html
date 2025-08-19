@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="rgb(48, 112, 179)">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <base href="{{ relURL "" }}">
+
+  <link rel="stylesheet" href="{{ relURL "styles/toc.css" }}">
+  <link rel="stylesheet" href="https://www.tum.de/typo3conf/ext/in2template/Resources/Public/Css/Static/style-1.0.0.css">
+
+  <link rel="stylesheet" href="{{ relURL "styles/custom.css" }}">
+  <link rel="stylesheet" href="{{ relURL "styles/md_classes.css" }}">
+  <link rel="stylesheet" href="{{ relURL "styles/shortcodes.css" }}">
+  <link rel="stylesheet" href="{{ relURL "styles/mobile-navbar.css" }}">
+  <link rel="stylesheet" href="{{ relURL "styles/scroll-to-top.css" }}">
+  <link rel="stylesheet" href="{{ relURL "styles/ipraktikum.css" }}">
+
+  <link rel="shortcut icon" type="image/x-icon" sizes="32x32" href="{{ relURL "favicon_32x32.ico" }}">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="{{ relURL "favicon_32x32.ico" }}">
+  <link rel="apple-touch-icon" href="{{ relURL "favicon_32x32.ico" }}">
+
+  <script type="module" src="{{ relURL "scripts/index.js" }}"></script>
+  {{ block "js_imports" . }}
+  {{ end }}
+
+  <title>
+    {{ block "title" . }}
+    {{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}
+    {{ end }}
+  </title>
+{{ with .Params.link }}
+  <meta http-equiv="refresh" content="0; url={{ . }}">
+  <link rel="canonical" href="{{ . }}">
+  <meta name="robots" content="noindex">
+{{end}}
+</head>
+
+<body>
+  <header>
+    <div>
+      <div id="header-list">
+        <ul>
+          <li><a href="/">Applied Education Technologies</a></li>
+          <li><a href="https://www.cit.tum.de/cit/startseite/" target="_blank">Computation, Information, and Technology</a></li>
+          <li><a href="https://www.tum.de" target="_blank">Technical University of Munich</a></li>
+        </ul>
+      </div>
+      <div id="navbar--wrapper">
+        {{ partial "navbar.html" }}
+      </div>
+      <div id="header-logo-container">
+        <div id="theme-dropdown" class="theme-dropdown">
+          <button id="theme-toggle" class="theme-toggle-button">
+            ☀️
+            <span class="arrow">▾</span>
+          </button>
+          <ul class="theme-menu hidden">
+            <li data-theme="system">System</li>
+            <li data-theme="light">Light</li>
+            <li data-theme="dark">Dark</li>
+          </ul>
+        </div>
+        <div id="header-logo">
+          <a href="{{ relURL "" }}" title="Startseite" target="_self" id="header-logo">
+          <img data-dark="true" src="images/logos/tum.svg" alt="TUM" height="38px" width="73px">
+          </a>
+        </div>
+      </div>
+      <button id="mobile-navbar--button">⋮</button>
+
+    </div>
+    {{ partial "mobile-navbar.html" }}
+  </header>
+
+  <div class="main-container">
+    {{ block "breadcrumbs" . }} {{ partial "breadcrumbs" (dict "link" .RelPermalink )}} {{ end }}
+    {{ block "main" . }}{{ end }}
+  </div>
+
+  {{ partial "footer.html" }}
+</body>
+</html>

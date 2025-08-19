@@ -1,0 +1,22 @@
+{{ $publications := slice }}
+{{ $current_year := 0 }}
+
+<!-- Populate publications array -->
+{{ range site.Data.publications }} {{ range . }}
+  {{ if not .hidden }}
+  {{ $publications = $publications | append .}}
+  {{ if ge .year $current_year }} {{ $current_year = add .year 1 }} {{ end }}
+  {{ end }}
+{{ end }} {{ end }}
+
+<!-- Iterate publications by year on descending order, create year header if needed -->
+{{ range sort (sort $publications "month" "desc") "year" "desc" }}
+<!-- New year header -->
+{{ if gt $current_year .year }}
+  {{ $current_year = .year }}
+  <strong>↓ {{ .year }} </strong>
+  <br>
+  <br>
+{{ end }}
+  {{ partial "format_publication" (dict "publication" .)}}
+{{ end }}

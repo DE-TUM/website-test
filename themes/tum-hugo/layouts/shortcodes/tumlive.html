@@ -1,0 +1,24 @@
+{{ $thumbnail := ""}}
+{{ if .Get "thumbnail" }}
+    {{ $thumbnail = (.Page.Resources.GetMatch (.Get "thumbnail")) }}
+    {{ if not $thumbnail }}
+        {{ $thumbnail = .Page.Parent.Resources.GetMatch (.Get "thumbnail") }}
+    {{ end }}
+    {{ if $thumbnail }}
+        {{ $thumbnail = $thumbnail.RelPermalink }}
+    {{ else }}
+        {{ $thumbnail = printf "%s%s" site.BaseURL (.Get "thumbnail") }}
+    {{ end }}
+{{ else if not (.Get "nothumbnail") }}
+    {{ $id := index (last 1 (split (.Get "url") "/")) 0 }}
+    {{ $thumbnail = printf "https://live.rbg.tum.de/api/stream/%s/thumbs/vod" $id }}
+{{ end }}
+{{ if not $thumbnail }}
+    {{ $thumbnail = printf "%s%s" site.BaseURL "images/ipraktikum_header.jpg" }}
+{{ end }}
+
+{{ partial "tumlive.html" (dict
+    "thumbnail" $thumbnail
+    "url" (.Get "url")
+    "nothumbnail" (.Get "nothumbnail")
+) }}

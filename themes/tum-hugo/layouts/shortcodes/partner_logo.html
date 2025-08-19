@@ -1,0 +1,20 @@
+<div class="partner--wrapper">
+    <a target="_blank" href="{{ .Get "url" }}" >
+    <div class="partner-image--wrapper">
+        {{ $img_src := .Get "src" }}
+        {{ with .Page.Resources.GetMatch (.Get "path") }}
+        {{ $img_src = .RelPermalink }}
+        {{ end }}
+        {{ with $img_src }}
+        <img class="partner-image" src="{{ . }}">
+        {{ else }}
+        <img class="person-image-undefined" src="images/profile-placeholder.svg">
+        {{ end }}
+    </div>
+    {{ with .Get "name" }}
+    <div class="portrait-text">
+        <p class="text--external">{{ . }} <img src="/images/link-ext.svg"></p>
+    </div>
+    {{ end }}
+    </a>
+</div>
